@@ -1,0 +1,570 @@
+// TOC
+
+// @mixin radius
+// 
+// @mixin transition
+// 
+// @mixin transition-long
+// 
+// @mixin reset
+// 
+// @mixin box-shadow
+// 
+// @mixin box-shadow($r,$g,$b,$a)
+// 	
+// @mixin lg
+// 	
+// @mixin md
+// 		
+// @mixin sm
+// 		
+// @mixin box-shadow
+// 
+// .desktop-lg
+// 
+// .desktop-md
+// 
+// .mobile-lg
+// 
+// .mobile-md
+// 
+// .clear
+// 		
+// .text-left
+// 	
+// .text-right
+// 		
+// .m-text-left
+// 	
+// .text-center
+// 	
+// .color-light
+// 		
+// .color-primary
+// 		
+// .color-light
+// 
+// .color-black
+// 		
+// .bg-black
+// 
+// .bg-light
+// 	
+// .border-top
+// 
+// .border-bottom
+// 	
+// .border-right
+// 	
+// .border-left
+// 	
+// .border
+// 		
+// .col-primary
+// 	
+// .d-inline-block
+// 
+// .d-block
+//
+// .m-#{$i}
+// 		
+// .my-#{$i}
+// 		
+// .mx-#{$i}
+// 		
+// .mt-#{$i}
+// 		
+// .mb-#{$i}
+// 		
+// .ml-#{$i}
+// 		
+// .mr-#{$i}
+// 		
+// .m-auto
+// 
+// .mt-auto
+// 
+// .mb-auto
+// 
+// .ml-auto
+// 
+// .mr-auto
+// 
+// .mx-auto
+// 	
+// .no-margin
+// 
+// .p-#{$i}
+// 		
+// .py-#{$i}
+// 		
+// .px-#{$i}
+// 		
+// .pt-#{$i}
+// 		
+// .pb-#{$i}
+// 		
+// .pl-#{$i}
+// 		
+// .pr-#{$i}
+// 		
+// .no-padding
+// 	
+// .no-margin
+// 
+// .width-#{$i}px
+// 
+// .max-width-#{$i}px
+// 
+// .min-width-#{$i}px
+// 
+// .height-#{$i}px
+// 
+// .max-height-#{$i}px
+// 
+// .min-height-#{$i}px
+// 
+// .width-#{$i}
+// 
+// .max-width-#{$i}
+// 
+// .min-width-#{$i}
+// 
+// .height-#{$i}
+// 
+// .max-height-#{$i}
+// 
+// .min-height-#{$i}
+// 		
+// .width-auto
+// 
+// .border-radius-#{$i}
+// 		
+// .btn
+	// &.btn-primary
+	// &.btn-lightgrey
+	// &.btn-secondary
+// 			
+// .button-container
+	// &.horizontal
+		// &.text-right
+		// &.text-left
+// 					
+// hr
+// 	
+// .hide
+// 
+// .hidden
+
+@import 'colors.sass'
+
+// MIXINS
+@mixin radius
+	border-radius: 4px
+	
+@mixin transition
+	transition: 0.4s
+	
+@mixin transition-long
+	transition: 1.2s
+	
+@mixin reset
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+	
+@mixin box-shadow
+	box-shadow: 	3px 3px 10px rgba(0,0,0,0.6)
+	
+@mixin lg
+	@media only screen and (max-width: 1224px)
+		@content			
+	
+@mixin md
+	@media only screen and (max-width: 992px)
+		@content		
+		
+@mixin sm
+	@media only screen and (max-width: 450px)
+		@content	
+	
+// ********************************************* HELPER CLASSES	
+
+.desktop-lg
+	display: block
+	@include lg
+		display: none
+		
+.desktop-md
+	display: block
+	@include md
+		display: none		
+
+.mobile-lg
+	display: none
+	@include lg
+		display: block
+		
+.mobile-md
+	display: none
+	@include md
+		display: block		
+
+.clear
+	clear: both
+		
+.text-left
+	text-align: left
+	*
+		margin-right: 0
+	
+.text-right
+	text-align: right
+	*
+		margin-left: 0	
+		
+.m-text-left
+	@include md
+		text-align: left !important
+		*
+			margin-right: 0 !important			
+	
+.text-center
+	text-align: center
+	
+.color-light
+	color: $light
+	*
+		color: $light
+	a:hover
+		color: darken($light,20%)
+		
+.color-primary
+	color: $primary
+	*
+		color: $primary
+	a:hover
+		color: darken($primary,20%)	
+		
+.color-light
+	color: $light
+
+.color-black		
+	color: black
+	
+.background-primary
+	background: $primary
+	border-color: $primary
+		
+.background-secondary
+	background: $secondary
+	border-color: $secondary
+	
+.background-light
+	background: $light
+	border-color: $light	
+	
+.background-lightgrey
+	background: $lightgrey
+	border-color: $lightgrey
+
+.color-light
+	color: $light
+.color-black
+	color: black
+.color-primary
+	color: $primary
+.color-secondary
+	color: $secondary
+	
+.border-top
+	border-top: 3px solid $border
+
+.border-bottom
+	border-bottom: 3px solid $border
+	
+.border-right
+	border-right: 3px solid $border
+	
+.border-left
+	border-left: 3px solid $border	
+	
+.border
+	border: 2px solid $border !important		
+		
+.col-primary
+	color: $primary
+	
+.d-inline-block
+	display: inline-block	
+	
+.d-block
+	display: block	
+	
+.reset
+	@include reset	
+
+@for $i	from -250 through 250
+	.m-#{$i}
+		margin: #{$i}px
+		@include md
+			margin: #{$i/2}px
+			margin: #{$i/2}px
+		@include sm
+			margin: #{$i/3}px
+			margin: #{$i/3}px
+			
+	.my-#{$i}
+		margin-top: #{$i}px
+		margin-bottom: #{$i}px
+		@include md
+			margin-top: #{$i/2}px
+			margin-bottom: #{$i/2}px
+		@include sm
+			margin-top: #{$i/3}px
+			margin-bottom: #{$i/3}px		
+			
+	.mx-#{$i}
+		margin-left: #{$i}px
+		margin-right: #{$i}px
+		@include md
+			margin-left: #{$i/2}px
+			margin-right: #{$i/2}px
+		@include sm
+			margin-left: #{$i/3}px
+			margin-right: #{$i/3}px
+			
+	.mt-#{$i}
+		margin-top: #{$i}px
+		@include md
+			margin-top: #{$i/2}px
+		@include sm
+			margin-top: #{$i/3}px
+			
+	.mb-#{$i}
+		margin-bottom: #{$i}px
+		@include md
+			margin-bottom: #{$i/2}px
+		@include sm
+			margin-bottom: #{$i/3}px
+			
+	.ml-#{$i}
+		margin-left: #{$i}px
+		@include md
+			margin-left: #{$i/2}px
+		@include sm
+			margin-left: #{$i/3}px
+			
+	.mr-#{$i}
+		margin-right: #{$i}px
+		@include md
+			margin-right: #{$i/2}px
+		@include sm
+			margin-right: #{$i/3}px
+		
+.m-auto
+	margin: auto	!important
+.mt-auto
+	margin-top: auto !important
+.mb-auto
+	margin-bottom: auto !important
+.ml-auto
+	margin-left: auto !important
+.mr-auto
+	margin-right: auto !important
+.mx-auto
+	margin-right: auto !important	
+	margin-left: auto !important
+	
+.no-margin
+	margin: 0 !important
+		
+@for $i	from 0 through 250
+	.p-#{$i}
+		padding: #{$i}px
+		@include md
+			padding: #{$i/2}px
+		@include sm
+			padding: #{$i/3}px
+			
+	.py-#{$i}
+		padding-top: #{$i}px
+		padding-bottom: #{$i}px
+		@include md
+			padding-top: #{$i/2}px
+			padding-bottom: #{$i/2}px
+		@include sm
+			padding-top: #{$i/3}px
+			padding-bottom: #{$i/3}px
+			
+	.px-#{$i}
+		padding-left: #{$i}px
+		padding-right: #{$i}px
+		@include md
+			padding-left: #{$i/2}px
+			padding-right: #{$i/2}px
+		@include sm
+			padding-left: #{$i/3}px
+			padding-right: #{$i/3}px
+			
+	.pt-#{$i}
+		padding-top: #{$i}px
+		@include md
+			padding-top: #{$i/2}px
+		@include sm
+			padding-top: #{$i/3}px
+			
+	.pb-#{$i}
+		padding-bottom: #{$i}px
+		@include md
+			padding-bottom: #{$i/2}px
+		@include sm
+			padding-bottom: #{$i/3}px
+			
+	.pl-#{$i}
+		padding-left: #{$i}px
+		@include md
+			padding-left: #{$i/2}px
+		@include sm
+			padding-left: #{$i/3}px
+			
+	.pr-#{$i}
+		padding-right: #{$i}px
+		@include md
+			padding-right: #{$i/2}px
+		@include sm
+			padding-right: #{$i/3}px
+		
+.no-padding
+	padding: 0					
+	
+.no-margin
+	margin: 0	
+	
+@for $i	from 0 through 1250
+	.width-#{$i}px
+		width: #{$i}px
+	.max-width-#{$i}px
+		max-width: #{$i}px
+	.min-width-#{$i}px
+		min-width: #{$i}px		
+	.height-#{$i}px
+		height: #{$i}px
+	.max-height-#{$i}px
+		max-height: #{$i}px	
+	.min-height-#{$i}px
+		min-height: #{$i}px			
+		
+@for $i	from 0 through 100
+	.width-#{$i}
+		width: ($i * 1%)
+	.max-width-#{$i}
+		max-width: ($i * 1%)
+	.min-width-#{$i}
+		min-width: ($i * 1%)		
+	.height-#{$i}
+		height: ($i * 1%)
+	.max-height-#{$i}
+		max-height: ($i * 1%)
+	.min-height-#{$i}
+		min-height: ($i * 1%)		
+		
+.width-auto
+	width: auto		
+		
+@for $i	from 0 through 50
+	.border-radius-#{$i}
+		border-radius: #{$i}px
+		overflow: hidden
+		
+.btn
+	display: inline-block
+	padding: 6px 15px
+	border: none
+	@include radius
+	text-transform: uppercase
+	@include transition
+	cursor: pointer
+	&.with-icon
+		text-align: left
+		padding: 13px 33px 14px 52px
+		position: relative
+		&::before
+			position: absolute
+			top: 12px
+			margin-left: -30px
+			width: 22px
+			height: 20px
+			background-size: 20px
+			background-position: center
+			background-repeat: no-repeat
+			content: ''	
+	&.btn-primary
+		background: $primary
+		color: $light
+		&:hover
+			background: darken($secondary, 10%)	
+	&.btn-lightgrey
+		background: $lightgrey
+		color: $secondary
+		&:hover
+			background: darken($lightgrey,10%)
+	&.btn-secondary
+		background: $secondary
+		color: $light
+		&:hover
+			background: darken($secondary,10%)			
+			
+.button-container
+	padding: 0 0 25px
+	&.horizontal
+		.btn,button,a,span,input
+			display: inline-block
+			width: auto
+		&.text-right
+			.btn,button,a,span,input
+				margin: 0
+				margin-left: 5px
+				@include md
+					margin: 10px 0
+		&.text-left
+			.btn,button,a,span,input
+				margin: 0
+				margin-right: 5px
+				@include md
+					margin: 10px 0		
+					
+button
+	@include reset
+	background: 	transparent
+	border: none								
+					
+hr
+	border: none
+	border-bottom: 3px solid $border
+hr.thin
+	border: none
+	border-bottom: 1px solid $border
+hr.thick
+	border: none
+	border-bottom: 5px solid $border		
+	
+.hide
+	@include reset
+	position: relative
+	z-index: -99
+	max-height: 0
+	opacity: 0
+	@include transition
+
+.hidden
+	display: none
+	
+.vertical-align
+	*
+		display: inline-block
+		width: 100%
+.horizontal-align
+	*
+		display: inline-block
+		width: auto
