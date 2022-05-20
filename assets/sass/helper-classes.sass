@@ -1,7 +1,20 @@
 
-@import 'colors.sass'
 
-// MIXINS
+// COLORS
+
+// @import 'colors.sass'
+
+$light: #fff
+$dark: #333
+$border: #e5e5e5
+
+$darkgrey: #656565
+$lightgrey: #bbb
+
+$primary: #5580b7
+$secondary: #666
+
+// ***************************************** MIXINS
 @mixin radius
 	border-radius: 4px
 	
@@ -20,7 +33,7 @@
 	box-shadow: 	3px 3px 10px rgba(0,0,0,0.6)
 	
 @mixin lg
-	@media only screen and (max-width: 1224px)
+	@media only screen and (max-width: 1200px)
 		@content			
 	
 @mixin md
@@ -28,8 +41,35 @@
 		@content		
 		
 @mixin sm
-	@media only screen and (max-width: 450px)
-		@content	
+	@media only screen and (max-width: 768px)
+		@content
+		
+@mixin xs
+	@media only screen and (max-width: 576px)
+		@content			
+		
+// ********************************************* LAYOUT
+.row
+	&::after
+		clear: both
+		display: table
+		content: ''
+	.col
+		float: left
+		width: 100%
+		@include sm
+			float: none
+	@for $i	from 1 through 100
+		.col.col-#{$i}
+			width: $i * 1%
+			@include sm
+				width: 100%
+	@for $i	from 1 through 1980
+		.col.col-#{$i}px
+			width: #{$i}px
+			@include sm
+				width: 100%
+			
 	
 // ********************************************* HELPER CLASSES	
 
@@ -144,16 +184,23 @@
 .reset
 	@include reset	
 
-// MARGINS
+// **************************************************** MARGIN
+
+// BREAKPOINTS DIVIDERS
+
+$xl: 1
+$lg: 0.7
+$md: 0.6
+$sm: 0.5
+$xs: 0.4
+
 @for $i	from -250 through 250
 	.m-#{$i}px
 		margin: #{$i}px
 		@include md
-			margin: #{$i/2}px
-			margin: #{$i/2}px
+			margin: #{($i*$md)}px
 		@include sm
-			margin: #{$i/3}px
-			margin: #{$i/3}px
+			margin: #{($i*$sm)}px
 			
 	.my-#{$i}px
 		margin-top: #{$i}px
@@ -202,64 +249,62 @@
 			margin-right: #{$i/2}px
 		@include sm
 			margin-right: #{$i/3}px
-			
+				
 @for $i	from 1 through 100
 	.m-#{$i}
-		margin: unquote("#{$i}*1%")
+		margin: $i * 1%
 		@include md
-			margin: unquote("#{$i/2}*1%")
-			margin: unquote("#{$i/2}*1%")
+			margin: $i * $md*1%
 		@include sm
-			margin: unquote("#{$i/3}*1%")
-			margin: unquote("#{$i/3}*1%")
+			margin: $i * $sm*1%
 			
 	.my-#{$i}
-		margin-top: unquote("#{$i}*1%")
-		margin-bottom: unquote("#{$i}*1%")
+		margin-top: $i * 1%
+		margin-bottom: $i * 1%
 		@include md
-			margin-top: unquote("#{$i/2}*1%")
-			margin-bottom: unquote("#{$i/2}*1%")
+			margin-top: $i * $md * 1%
+			margin-bottom: $i * $md * 1%
 		@include sm
-			margin-top: unquote("#{$i/3}*1%")
-			margin-bottom: unquote("#{$i/3}*1%	")
+			margin-top: $i * $sm * 1%
+			margin-bottom: $i * $sm * 1%
 			
 	.mx-#{$i}
-		margin-left: unquote("#{$i}*1%")
-		margin-right: unquote("#{$i}*1%")
+		margin-left: $i * 1%
+		margin-right: $i * 1%
 		@include md
-			margin-left: unquote("#{$i/2}*1%")
-			margin-right: unquote("#{$i/2}*1%")
+			margin-left: $i * $md*1%
+			margin-right: $i * $md*1%
 		@include sm
-			margin-left: unquote("#{$i/3}*1%")
-			margin-right: unquote("#{$i/3}*1%")
+			margin-left: $i * $sm*1%
+			margin-right: $i * $sm*1%
 			
 	.mt-#{$i}
-		margin-top: unquote("#{$i}*1%")
+		margin-top: $i * 1%
 		@include md
-			margin-top: unquote("#{$i/2}*1%")
+			margin-top: $i * $md*1%
 		@include sm
-			margin-top: unquote("#{$i/3}*1%")
+			margin-top: $i * $sm*1%
 			
 	.mb-#{$i}
-		margin-bottom: unquote("#{$i}*1%")
+		margin-bottom: $i * 1%
 		@include md
-			margin-bottom: unquote("#{$i/2}*1%")
+			margin-bottom: $i * $md*1%
 		@include sm
-			margin-bottom: unquote("#{$i/3}*1%")
+			margin-bottom: $i * $sm*1%
 			
 	.ml-#{$i}
-		margin-left: unquote("#{$i}*1%")
+		margin-left: $i * 1%
 		@include md
-			margin-left: unquote("#{$i/2}*1%")
+			margin-left: $i * $md*1%
 		@include sm
-			margin-left: unquote("#{$i/3}*1%")
+			margin-left: $i * $sm*1%
 			
 	.mr-#{$i}
-		margin-right: unquote("#{$i}*1%")
+		margin-right: $i * 1%
 		@include md
-			margin-right: unquote("#{$i/2}*1%")
+			margin-right: $i * $md*1%
 		@include sm
-			margin-right: unquote("#{$i/3}*1%")
+			margin-right: $i * $sm*1%
 		
 .m-auto
 	margin: auto	!important
@@ -277,62 +322,120 @@
 	
 .no-margin
 	margin: 0 !important
+	
+// ***************************************************** PADDING	
 		
 @for $i	from 0 through 250
-	.p-#{$i}
+	.p-#{$i}px
 		padding: #{$i}px
 		@include md
-			padding: #{$i/2}px
+			padding: #{($i*$md)}px
 		@include sm
-			padding: #{$i/3}px
+			padding: #{($i*$sm)}px
+			
+	.py-#{$i}px
+		padding-top: #{$i}px
+		padding-bottom: #{$i}px
+		@include md
+			padding-top: #{($i*$md)}px
+			padding-bottom: #{($i*$md)}px
+		@include sm
+			padding-top: #{($i*$sm)}px
+			padding-bottom: #{($i*$sm)}px
+			
+	.px-#{$i}px
+		padding-left: #{$i}px
+		padding-right: #{$i}px
+		@include md
+			padding-left: #{($i*$md)}px
+			padding-right: #{($i*$md)}px
+		@include sm
+			padding-left: #{($i*$sm)}px
+			padding-right: #{($i*$sm)}px
+			
+	.pt-#{$i}px
+		padding-top: #{$i}px
+		@include md
+			padding-top: #{($i*$md)}px
+		@include sm
+			padding-top: #{($i*$sm)}px
+			
+	.pb-#{$i}px
+		padding-bottom: #{$i}px
+		@include md
+			padding-bottom: #{($i*$md)}px
+		@include sm
+			padding-bottom: #{($i*$sm)}px
+			
+	.pl-#{$i}px
+		padding-left: #{$i}px
+		@include md
+			padding-left: #{($i*$md)}px
+		@include sm
+			padding-left: #{($i*$sm)}px
+			
+	.pr-#{$i}px
+		padding-right: #{$i}px
+		@include md
+			padding-right: #{($i*$md)}px
+		@include sm
+			padding-right: #{($i*$sm)}px
+			
+@for $i	from 1 through 100
+	.p-#{$i}
+		padding: $i * 1%
+		@include md
+			padding: $i * $md * 1%
+		@include sm
+			padding: $i * $sm * 1%
 			
 	.py-#{$i}
-		padding-top: #{$i}px
-		padding-bottom: #{$i}px
+		padding-top: $i * 1%
+		padding-bottom: $i * 1%
 		@include md
-			padding-top: #{$i/2}px
-			padding-bottom: #{$i/2}px
+			padding-top: $i * $md * 1%
+			padding-bottom: $i * $md * 1%
 		@include sm
-			padding-top: #{$i/3}px
-			padding-bottom: #{$i/3}px
+			padding-top: $i * $sm * 1%
+			padding-bottom: $i * $sm * 1%
 			
 	.px-#{$i}
-		padding-left: #{$i}px
-		padding-right: #{$i}px
+		padding-left: $i * 1%
+		padding-right: $i * 1%
 		@include md
-			padding-left: #{$i/2}px
-			padding-right: #{$i/2}px
+			padding-left: $i * $md * 1%
+			padding-right: $i * $md * 1%
 		@include sm
-			padding-left: #{$i/3}px
-			padding-right: #{$i/3}px
+			padding-left: $i * $sm * 1%
+			padding-right: $i * $sm * 1%
 			
 	.pt-#{$i}
-		padding-top: #{$i}px
+		padding-top: $i * 1%
 		@include md
-			padding-top: #{$i/2}px
+			padding-top: $i * $md * 1%
 		@include sm
-			padding-top: #{$i/3}px
+			padding-top: $i * $sm * 1%
 			
 	.pb-#{$i}
-		padding-bottom: #{$i}px
+		padding-bottom: $i * 1%
 		@include md
-			padding-bottom: #{$i/2}px
+			padding-bottom: $i * $md * 1%
 		@include sm
-			padding-bottom: #{$i/3}px
+			padding-bottom: $i * $sm * 1%
 			
 	.pl-#{$i}
-		padding-left: #{$i}px
+		padding-left: $i * 1%
 		@include md
-			padding-left: #{$i/2}px
+			padding-left: $i * $md * 1%
 		@include sm
-			padding-left: #{$i/3}px
+			padding-left: $i * $sm * 1%
 			
 	.pr-#{$i}
-		padding-right: #{$i}px
+		padding-right: $i * 1%
 		@include md
-			padding-right: #{$i/2}px
+			padding-right: $i * $md * 1%
 		@include sm
-			padding-right: #{$i/3}px
+			padding-right: $i * $sm * 1%
 		
 .no-padding
 	padding: 0					
