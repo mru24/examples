@@ -1,160 +1,3 @@
-// TOC
-
-// @mixin radius
-// 
-// @mixin transition
-// 
-// @mixin transition-long
-// 
-// @mixin reset
-// 
-// @mixin box-shadow
-// 
-// @mixin box-shadow($r,$g,$b,$a)
-// 	
-// @mixin lg
-// 	
-// @mixin md
-// 		
-// @mixin sm
-// 		
-// @mixin box-shadow
-// 
-// .desktop-lg
-// 
-// .desktop-md
-// 
-// .mobile-lg
-// 
-// .mobile-md
-// 
-// .clear
-// 		
-// .text-left
-// 	
-// .text-right
-// 		
-// .m-text-left
-// 	
-// .text-center
-// 	
-// .color-light
-// 		
-// .color-primary
-// 		
-// .color-light
-// 
-// .color-black
-// 		
-// .bg-black
-// 
-// .bg-light
-// 	
-// .border-top
-// 
-// .border-bottom
-// 	
-// .border-right
-// 	
-// .border-left
-// 	
-// .border
-// 		
-// .col-primary
-// 	
-// .d-inline-block
-// 
-// .d-block
-//
-// .m-#{$i}
-// 		
-// .my-#{$i}
-// 		
-// .mx-#{$i}
-// 		
-// .mt-#{$i}
-// 		
-// .mb-#{$i}
-// 		
-// .ml-#{$i}
-// 		
-// .mr-#{$i}
-// 		
-// .m-auto
-// 
-// .mt-auto
-// 
-// .mb-auto
-// 
-// .ml-auto
-// 
-// .mr-auto
-// 
-// .mx-auto
-// 	
-// .no-margin
-// 
-// .p-#{$i}
-// 		
-// .py-#{$i}
-// 		
-// .px-#{$i}
-// 		
-// .pt-#{$i}
-// 		
-// .pb-#{$i}
-// 		
-// .pl-#{$i}
-// 		
-// .pr-#{$i}
-// 		
-// .no-padding
-// 	
-// .no-margin
-// 
-// .width-#{$i}px
-// 
-// .max-width-#{$i}px
-// 
-// .min-width-#{$i}px
-// 
-// .height-#{$i}px
-// 
-// .max-height-#{$i}px
-// 
-// .min-height-#{$i}px
-// 
-// .width-#{$i}
-// 
-// .max-width-#{$i}
-// 
-// .min-width-#{$i}
-// 
-// .height-#{$i}
-// 
-// .max-height-#{$i}
-// 
-// .min-height-#{$i}
-// 		
-// .width-auto
-// 
-// .border-radius-#{$i}
-// 		
-// .btn
-	// &.btn-primary
-	// &.btn-lightgrey
-	// &.btn-secondary
-// 			
-// .button-container
-	// &.horizontal
-		// &.text-right
-		// &.text-left
-// 					
-// hr
-// 	
-// .hide
-// 
-// .hidden
 
 @import 'colors.sass'
 
@@ -209,9 +52,6 @@
 	display: none
 	@include md
 		display: block		
-
-.clear
-	clear: both
 		
 .text-left
 	text-align: left
@@ -304,8 +144,9 @@
 .reset
 	@include reset	
 
+// MARGINS
 @for $i	from -250 through 250
-	.m-#{$i}
+	.m-#{$i}px
 		margin: #{$i}px
 		@include md
 			margin: #{$i/2}px
@@ -314,7 +155,7 @@
 			margin: #{$i/3}px
 			margin: #{$i/3}px
 			
-	.my-#{$i}
+	.my-#{$i}px
 		margin-top: #{$i}px
 		margin-bottom: #{$i}px
 		@include md
@@ -324,7 +165,7 @@
 			margin-top: #{$i/3}px
 			margin-bottom: #{$i/3}px		
 			
-	.mx-#{$i}
+	.mx-#{$i}px
 		margin-left: #{$i}px
 		margin-right: #{$i}px
 		@include md
@@ -334,33 +175,91 @@
 			margin-left: #{$i/3}px
 			margin-right: #{$i/3}px
 			
-	.mt-#{$i}
+	.mt-#{$i}px
 		margin-top: #{$i}px
 		@include md
 			margin-top: #{$i/2}px
 		@include sm
 			margin-top: #{$i/3}px
 			
-	.mb-#{$i}
+	.mb-#{$i}px
 		margin-bottom: #{$i}px
 		@include md
 			margin-bottom: #{$i/2}px
 		@include sm
 			margin-bottom: #{$i/3}px
 			
-	.ml-#{$i}
+	.ml-#{$i}px
 		margin-left: #{$i}px
 		@include md
 			margin-left: #{$i/2}px
 		@include sm
 			margin-left: #{$i/3}px
 			
-	.mr-#{$i}
+	.mr-#{$i}px
 		margin-right: #{$i}px
 		@include md
 			margin-right: #{$i/2}px
 		@include sm
 			margin-right: #{$i/3}px
+			
+@for $i	from 1 through 100
+	.m-#{$i}
+		margin: unquote("#{$i}*1%")
+		@include md
+			margin: unquote("#{$i/2}*1%")
+			margin: unquote("#{$i/2}*1%")
+		@include sm
+			margin: unquote("#{$i/3}*1%")
+			margin: unquote("#{$i/3}*1%")
+			
+	.my-#{$i}
+		margin-top: unquote("#{$i}*1%")
+		margin-bottom: unquote("#{$i}*1%")
+		@include md
+			margin-top: unquote("#{$i/2}*1%")
+			margin-bottom: unquote("#{$i/2}*1%")
+		@include sm
+			margin-top: unquote("#{$i/3}*1%")
+			margin-bottom: unquote("#{$i/3}*1%	")
+			
+	.mx-#{$i}
+		margin-left: unquote("#{$i}*1%")
+		margin-right: unquote("#{$i}*1%")
+		@include md
+			margin-left: unquote("#{$i/2}*1%")
+			margin-right: unquote("#{$i/2}*1%")
+		@include sm
+			margin-left: unquote("#{$i/3}*1%")
+			margin-right: unquote("#{$i/3}*1%")
+			
+	.mt-#{$i}
+		margin-top: unquote("#{$i}*1%")
+		@include md
+			margin-top: unquote("#{$i/2}*1%")
+		@include sm
+			margin-top: unquote("#{$i/3}*1%")
+			
+	.mb-#{$i}
+		margin-bottom: unquote("#{$i}*1%")
+		@include md
+			margin-bottom: unquote("#{$i/2}*1%")
+		@include sm
+			margin-bottom: unquote("#{$i/3}*1%")
+			
+	.ml-#{$i}
+		margin-left: unquote("#{$i}*1%")
+		@include md
+			margin-left: unquote("#{$i/2}*1%")
+		@include sm
+			margin-left: unquote("#{$i/3}*1%")
+			
+	.mr-#{$i}
+		margin-right: unquote("#{$i}*1%")
+		@include md
+			margin-right: unquote("#{$i/2}*1%")
+		@include sm
+			margin-right: unquote("#{$i/3}*1%")
 		
 .m-auto
 	margin: auto	!important
@@ -443,39 +342,48 @@
 	
 @for $i	from 0 through 1250
 	.width-#{$i}px
-		width: #{$i}px
+		width: #{$i}px !important
 	.max-width-#{$i}px
-		max-width: #{$i}px
+		max-width: #{$i}px !important
 	.min-width-#{$i}px
-		min-width: #{$i}px		
+		min-width: #{$i}px	!important
 	.height-#{$i}px
-		height: #{$i}px
+		height: #{$i}px !important
 	.max-height-#{$i}px
-		max-height: #{$i}px	
+		max-height: #{$i}px !important
 	.min-height-#{$i}px
-		min-height: #{$i}px			
+		min-height: #{$i}px !important
 		
 @for $i	from 0 through 100
 	.width-#{$i}
-		width: ($i * 1%)
+		width: ($i * 1%) !important
 	.max-width-#{$i}
-		max-width: ($i * 1%)
+		max-width: ($i * 1%) !important
 	.min-width-#{$i}
-		min-width: ($i * 1%)		
+		min-width: ($i * 1%) !important
 	.height-#{$i}
-		height: ($i * 1%)
+		height: ($i * 1%) !important
 	.max-height-#{$i}
-		max-height: ($i * 1%)
+		max-height: ($i * 1%) !important
 	.min-height-#{$i}
-		min-height: ($i * 1%)		
+		min-height: ($i * 1%) !important
 		
 .width-auto
-	width: auto		
+	width: auto	 !important
 		
 @for $i	from 0 through 50
 	.border-radius-#{$i}
 		border-radius: #{$i}px
 		overflow: hidden
+		
+.float-left
+	float: left	
+	
+.float-right
+	float: right		
+	
+.clear
+	clear: both	
 		
 .btn
 	display: inline-block
@@ -568,3 +476,46 @@ hr.thick
 	*
 		display: inline-block
 		width: auto
+		
+img
+	max-width: 100%
+	
+.square-box
+	position: relative
+	width: 100%
+	padding-bottom: 100%
+	> *
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+
+.image
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+	&.contain
+		background-size: contain
+	
+.round
+	border-radius: 50%	
+	
+.with-info-button
+	&.right
+		padding-right: 120px
+					
+					
+// INFO / TOOLTIP					
+.show-tooltip
+	cursor: pointer
+	.info,
+	.tooltip
+		transform: scale(0)
+		transform-origin: top left
+		transition: 0.2s
+	&:hover
+		.info,
+		.tooltip	
+			transition-delay: 0.5s
+			transform: scale(1)		
