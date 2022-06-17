@@ -420,3 +420,8 @@ img {
   transition-delay: 0.5s;
   transform: scale(1);
 }
+
+/* line 4, ../sass/screen.sass */
+body {
+  background: red;
+}

@@ -1,0 +1,537 @@
+@import 'colors.sass'
+@import 'helper-classes.sass'
+
+// *************************** TYPOGRAPHY
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap')
+
+html,body
+	max-width: 100vw
+	overflow-x: hidden
+body
+	font-family: 'Poppins', sans-serif
+	line-height: 1.6
+	@include md
+		padding-bottom: 65px
+
+h1,h2,h3,h4,h5,h6
+	font-weight: 400
+	color: $dark
+	line-height: 1.3
+			
+h1
+	font-size: 32px	
+	@include sm
+		font-size: 26px
+h2
+	font-size: 29px
+	margin: 35px 0 10px
+	padding: 10px 15px
+	border-left: 3px solid $primary
+	@include sm
+		font-size: 23px
+h3
+	font-size: 26px	
+	@include sm
+		font-size: 20px
+h4
+	font-size: 23px
+	@include sm
+		font-size: 19px	
+
+p,a,li
+	font-size: 17px
+	color: $dark
+
+a,a:visited,a:active
+	text-decoration: none !important
+	color: $primary
+	@include transition
+	&:hover
+		color: lighten($primary,10%)
+
+// ******************** LAYOUT
+.wrapper
+	min-height: 100vh
+	padding-bottom: 45px
+	&::before,
+	&::after
+		content: ''
+		clear: both
+		display: table
+sidebar,main
+	float: left
+	height: auto
+	min-height: 100vh
+sidebar
+	width: 75px
+	@include md
+		left: -100px	
+main
+	@include reset
+	width: calc(100% - 50px)
+	margin-left: 50px
+	&.no-sidebar
+		@include reset
+		width: 100%
+	@include md
+		width: 100%
+		margin-left: 0
+	
+.container
+	width: 94% !important
+	@include sm
+		width: 99% !important
+	
+main	
+	.content
+		width: 100%
+		
+// *************** GENERAL
+.with-info-button
+	p
+		position: relative
+		.info-button
+			position: absolute
+			top: 31px
+			right: -45px
+			.info
+				position: absolute
+				z-index: 5
+				top: -7px
+				left: 43px
+				width: 120px
+				padding: 6px
+				background: $secondary
+				border-radius: 4px
+				color: $light
+				font-size: 14px
+				line-height: 1.2
+				&::before
+					position: absolute
+					top: 13px
+					left: -10px
+					border-right: 10px solid $secondary
+					border-top: 10px solid transparent
+					border-bottom: 10px solid transparent
+					content: ''		
+					
+// STATUS BOX
+.status-box
+	padding: 5px 15px
+	width: 100px
+	text-align: center
+	border: 2px solid black
+	border-radius: 3px
+	margin-bottom: 4px
+	color: darken($border,10%)
+	background: $border
+	&.true
+		background: green
+		color: $light
+	&.false
+		background: $border
+		color: darken($border,20%)
+	&.cancel
+		background: #e2aa0d !important		
+
+// MENU TOP
+main.with-tabs
+	.menu.top
+		padding-bottom: 80px
+.menu
+	&.top
+		background: $lightgrey
+		ul.breadcrumbs
+			@include reset
+			list-style: none
+			background: inherit
+			padding: 8px 0
+			margin: 15px 0 20px
+			border-top: 2px solid darken($border,5%)
+			border-bottom: 2px solid darken($border,5%)
+			li
+				display: inline-block
+				margin: 3px 8px
+				@include sm
+					display: block
+				a
+					color: $primary
+					white-space: nowrap
+					font-size: 15px
+					@include sm
+						font-size: 14px
+				&:first-child
+					margin-left: 0
+				&:last-child
+					a
+						color: $dark
+					&::after
+						display: none
+				&::after
+					content: '>'
+					margin-left: 9px
+					margin-right: -13px
+					font-weight: lighter
+			
+// ********************** SIDEBAR
+sidebar
+	position: fixed
+	z-index: 5
+	top: 0
+	left: 0
+	background: $primary
+	.content		
+		.top
+			background: $secondary	
+			height: 105px
+			padding: 14px 3px 0
+		.middle .organisation,
+		.bottom .user
+			padding: 0 10px	
+		.middle
+			.organisation
+				padding: 0 10px
+			.menu-items
+				ul
+					@include reset
+					list-style: none
+					text-align: center
+					li
+						width: 100%
+						padding: 0 20px
+						margin: 20px auto 25px
+						a
+							@include reset
+							img
+								height: 28px
+								width: 28px
+						&.active
+							position: relative
+							&::after
+								position: absolute
+								top: 10px
+								right: 0
+								border-right: 7px solid $light
+								border-top: 7px solid transparent
+								border-bottom: 7px solid transparent
+								content: ''
+							.tool-tip
+								&::before
+									display: block
+						a
+							margin-left: -2px
+							position: relative
+							.icon
+								color: $light
+								font-size: 26px
+							.tool-tip
+								transform: scale(0)
+								position: absolute
+								z-index: 5
+								top: -2px
+								left: 55px
+								background: $secondary
+								border-radius: 4px
+								padding: 5px 10px
+								white-space: nowrap
+								font-size: 16px
+								color: $light
+								transition: .1s
+								&::before
+									display: none
+									position: absolute
+									top: 11px
+									left: -7px
+									border-right: 7px solid $secondary
+									border-top: 7px solid transparent
+									border-bottom: 7px solid transparent
+									content: ''									
+						&:hover
+							.tool-tip
+								transform: scale(1)
+								transition-delay: 0.8s
+		.bottom
+			background: $secondary
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 100%
+			height: 60px
+			ul
+				@include reset
+				list-style: none
+				margin: auto
+				.square-box
+					.image
+						border: 2px solid $light
+					.initials
+						border: 2px solid $light
+						p
+							padding-top: 11px
+							font-size: 19px
+							color: $light
+						
+sidebar
+	.content	
+		.middle .organisation,
+		.bottom .user
+			position: relative
+			top: -28px
+			ul
+				@include reset
+				list-style: none
+				&.submenu
+					background: $light
+					position: absolute
+					left: 60px
+					top: 15px
+					width: 260px
+					padding: 10px 20px
+					display: none
+					border: 2px solid $border
+					&.active
+						display: block
+					li
+						white-space: nowrap		
+		.bottom .user
+			ul
+				&.submenu
+					width: auto
+					bottom: -20px
+					top: auto
+					li
+						padding: 2px 0
+						a
+							font-size: 14px
+							color: $dark
+							.icon
+								margin-right: 8px
+								
+sidebar
+	.sidebar-trigger.slider
+		display: none
+		position: fixed
+		z-index: 10
+		bottom: 0
+		left: 0
+		width: 100vw
+		height: 65px
+		background: $primary
+		@include transition
+		@include md
+			display: block
+		.content
+			padding: 10px 40px
+			p
+				color: $light
+				font-size: 26px
+	.active
+		display: none
+	.disabled
+		display: block
+	&.active	
+		.sidebar-trigger.slider
+			left: 75px
+			width: calc(100vw - 75px)
+			.active
+				display: block
+			.disabled
+				display: none
+								
+sidebar
+	@include md
+		@include transition
+		left: -76px	
+	&.active
+		left: 0
+main
+	@include md
+		width: 100%
+		margin-left: 0								
+
+// ********************** FORM
+label
+	display: block
+	margin-bottom: -5px
+input,
+select,
+textarea
+	width: 100%
+	border: 2px solid $border
+	border-radius: 3px
+	height: 40px
+	margin: 5px 0 15px
+	padding-left: 8px
+	color: $primary
+textarea
+	height: 90px
+	resize: none
+	white-space: pre-line
+textarea.large
+	height: 190px	
+input[type="checkbox"]
+	@include reset
+	width: 18px
+	height: 18px
+	
+.checkbox-container
+	input[type="checkbox"]
+		position: relative
+		top: 3px
+		margin-right: 5px
+	
+// ********************** TABS
+.ui-widget.ui-widget-content
+	border: none !important
+.ui-tabs .ui-tabs-panel
+	padding: 0 !important
+	
+.tabs-with-options
+	position: relative
+	.ui-widget-header
+		background: $light
+		border: none
+	.tab-options
+		position: absolute
+		top: -60px
+		right: 0
+		
+.ui-tabs
+	ul.ui-tabs-nav
+		position: relative
+		top: -70px
+		left: -5px
+		background: $lightgrey
+		li.ui-tabs-tab
+			border: none
+			background: $lightgrey !important
+			border-bottom: 4px solid $light
+			margin: 0
+			a.ui-tabs-anchor
+				color: $dark !important
+			&.ui-tabs-active
+				border-color: $secondary
+	.tab-content
+		position: relative
+		top: -40px
+	
+	
+// ************************ TABLE
+.table-container
+	width: 100%
+	overflow-x: auto
+table.dataTable
+	margin-top: 30px !important
+	thead
+		background: $primary
+		color: $light
+table.dataTable.no-footer
+	border: none !important
+table.dataTable.compact thead th, 
+table.dataTable.compact thead td,
+table.dataTable.compact tbody td
+	padding-left: 4px !important
+	border-bottom: 2px solid $border
+	white-space: nowrap
+table.dataTable.compact thead th, 
+table.dataTable.compact thead td
+	text-transform: uppercase
+	font-size: 17px
+table.dataTable.compact tbody tr,	
+table.dataTable.compact tbody tr td,
+table.dataTable.compact tbody tr td a
+	font-size: 14px
+	
+.dataTables_paginate.paging_simple_numbers
+	margin-right: 53px
+	margin-top: 25px
+	.paginate_button
+		border: none !important
+		background: transparent !important
+		color: $primary !important
+		&.current	
+			position: relative
+			&::before
+				position: absolute
+				z-index: -1
+				top: 5px
+				left: 4px
+				width: 31px
+				height: 31px
+				border-radius: 50%
+				background: $secondary
+				content: ''
+		&.next,
+		&.previous
+			position: relative
+		&.previous
+			&::before
+				position: absolute
+				top: 7px
+				left: -20px
+				width: 30px
+				height: 30px
+				background-image: url('/assets/images/circle-chevron-left-light.svg')
+				background-size: 25px
+				background-position: center
+				background-repeat: no-repeat
+				content: ''
+		&.next
+			&::after
+				position: absolute
+				top: 7px
+				right: -25px
+				width: 30px
+				height: 30px
+				background-image: url('/assets/images/circle-chevron-right-light.svg')
+				background-size: 25px
+				background-position: center
+				background-repeat: no-repeat
+				content: ''
+			
+.fishery.expert  .dataTables_wrapper .dataTables_paginate .paginate_button.current, 
+.fishery.expert .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover
+	color: $light !important
+.fishery.expert  .dataTables_wrapper .dataTables_paginate .paginate_button,
+.fishery.expert  .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+.fishery.expert  .dataTables_wrapper .dataTables_paginate .paginate_button.next
+	color: $primary !important
+	
+// .dataTables_wrapper 
+	// .dataTables_length,
+	// .dataTables_filter,
+	// .dataTables_info,
+	// .dataTables_paginate
+		// display: none
+		
+table.dataTable.compact tbody td a:not(.btn)
+	color: $primary !important
+	
+// ******************************* POPUP
+a4e-gui-popup
+	.popup-window
+		border: none !important
+		border-radius: 4px !important
+		overflow: hidden
+		.popup-title
+			background: $primary !important
+			.popup-button
+				color: white
+				position: relative
+				z-index: 1
+				opacity: 1
+				top: 3px
+				right: 5px
+		.popup-content
+			h2
+				font-size: 24px			
+		
+// ******************************* FOOTER	
+footer
+	background: #222
+	color: #eee
+	font-size: 12px
+	line-height: 1.2
+	padding: 5px 15px 6px 66px
+	@include md
+		padding: 5px 15px
