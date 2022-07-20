@@ -1,4 +1,4 @@
-// ww layout classes sass version 1.01
+// ww layout classes sass version 1.1
 
 @import 'helper-classes.sass'
 
@@ -37,115 +37,124 @@ $xs: 0.4
 @for $i	from -250 through 250
 	.m-#{$i}px
 		margin: #{$i}px
-		@include md
-			margin: #{($i*$md)}px
-		@include sm
-			margin: #{($i*$sm)}px
-			
+		// @include md
+			// margin: #{($i*$md)}px
+		// @include sm
+			// margin: #{($i*$sm)}px
+
 	.my-#{$i}px
 		margin-top: #{$i}px
 		margin-bottom: #{$i}px
-		@include md
-			margin-top: #{$i/2}px
-			margin-bottom: #{$i/2}px
-		@include sm
-			margin-top: #{$i/3}px
-			margin-bottom: #{$i/3}px		
-			
+		// @include md
+			// margin-top: #{$i/2}px
+			// margin-bottom: #{$i/2}px
+		// @include sm
+			// margin-top: #{$i/3}px
+			// margin-bottom: #{$i/3}px
+
 	.mx-#{$i}px
 		margin-left: #{$i}px
 		margin-right: #{$i}px
-		@include md
-			margin-left: #{$i/2}px
-			margin-right: #{$i/2}px
-		@include sm
-			margin-left: #{$i/3}px
-			margin-right: #{$i/3}px
-			
+		// @include md
+			// margin-left: #{$i/2}px
+			// margin-right: #{$i/2}px
+		// @include sm
+			// margin-left: #{$i/3}px
+			// margin-right: #{$i/3}px
+
 	.mt-#{$i}px
 		margin-top: #{$i}px
+		// @include md
+			// margin-top: #{$i/2}px
+		// @include sm
+			// margin-top: #{$i/3}px
+	.lg-mt-#{$i}px
+		@include lg
+			margin-top: #{$i}px !important
+	.md-mt-#{$i}px
 		@include md
-			margin-top: #{$i/2}px
-		@include sm
-			margin-top: #{$i/3}px
-			
+			margin-top: #{$i}px !important
+
 	.mb-#{$i}px
 		margin-bottom: #{$i}px
-		@include md
-			margin-bottom: #{$i/2}px
-		@include sm
-			margin-bottom: #{$i/3}px
-			
+		// @include md
+			// margin-bottom: #{$i/2}px
+		// @include sm
+			// margin-bottom: #{$i/3}px
+
 	.ml-#{$i}px
 		margin-left: #{$i}px
-		@include md
-			margin-left: #{$i/2}px
-		@include sm
-			margin-left: #{$i/3}px
-			
+		// @include md
+			// margin-left: #{$i/2}px
+		// @include sm
+			// margin-left: #{$i/3}px
+
 	.mr-#{$i}px
 		margin-right: #{$i}px
-		@include md
-			margin-right: #{$i/2}px
-		@include sm
-			margin-right: #{$i/3}px
-				
+		// @include md
+			// margin-right: #{$i/2}px
+		// @include sm
+			// margin-right: #{$i/3}px
+
 @for $i	from 1 through 100
 	.m-#{$i}
 		margin: $i * 1%
-		@include md
-			margin: $i * $md*1%
-		@include sm
-			margin: $i * $sm*1%
-			
+		// @include md
+			// margin: $i * $md*1%
+		// @include sm
+			// margin: $i * $sm*1%
+
 	.my-#{$i}
 		margin-top: $i * 1%
 		margin-bottom: $i * 1%
-		@include md
-			margin-top: $i * $md * 1%
-			margin-bottom: $i * $md * 1%
-		@include sm
-			margin-top: $i * $sm * 1%
-			margin-bottom: $i * $sm * 1%
-			
+		// @include md
+			// margin-top: $i * $md * 1%
+			// margin-bottom: $i * $md * 1%
+		// @include sm
+			// margin-top: $i * $sm * 1%
+			// margin-bottom: $i * $sm * 1%
+
 	.mx-#{$i}
 		margin-left: $i * 1%
 		margin-right: $i * 1%
-		@include md
-			margin-left: $i * $md*1%
-			margin-right: $i * $md*1%
-		@include sm
-			margin-left: $i * $sm*1%
-			margin-right: $i * $sm*1%
-			
+		// @include md
+			// margin-left: $i * $md*1%
+			// margin-right: $i * $md*1%
+		// @include sm
+			// margin-left: $i * $sm*1%
+			// margin-right: $i * $sm*1%
+
 	.mt-#{$i}
 		margin-top: $i * 1%
+		// @include md
+			// margin-top: $i * $md*1%
+		// @include sm
+			// margin-top: $i * $sm*1%
+	.md-mt-#{$i}
 		@include md
-			margin-top: $i * $md*1%
-		@include sm
-			margin-top: $i * $sm*1%
-			
+			margin-top: $i * 1%
+
 	.mb-#{$i}
 		margin-bottom: $i * 1%
-		@include md
-			margin-bottom: $i * $md*1%
-		@include sm
-			margin-bottom: $i * $sm*1%
-			
+		// @include md
+			// margin-bottom: $i * $md*1%
+		// @include sm
+			// margin-bottom: $i * $sm*1%
+
 	.ml-#{$i}
 		margin-left: $i * 1%
-		@include md
-			margin-left: $i * $md*1%
-		@include sm
-			margin-left: $i * $sm*1%
-			
+		// @include md
+			// margin-left: $i * $md*1%
+		// @include sm
+			// margin-left: $i * $sm*1%
+
 	.mr-#{$i}
 		margin-right: $i * 1%
-		@include md
-			margin-right: $i * $md*1%
-		@include sm
-			margin-right: $i * $sm*1%
-		
+		// @include md
+			// margin-right: $i * $md*1%
+		// @include sm
+			// margin-right: $i * $sm*1%
+
 .m-auto
 	margin: auto	!important
 .mt-auto
@@ -157,132 +166,166 @@ $xs: 0.4
 .mr-auto
 	margin-right: auto !important
 .mx-auto
-	margin-right: auto !important	
+	margin-right: auto !important
 	margin-left: auto !important
-	
+
 .no-margin
 	margin: 0 !important
 
-// ***************************************************** PADDING	
-		
+// ***************************************************** PADDING
+
 @for $i	from 0 through 250
 	.p-#{$i}px
 		padding: #{$i}px
-		@include md
-			padding: #{($i*$md)}px
-		@include sm
-			padding: #{($i*$sm)}px
-			
+		// @include md
+			// padding: #{($i*$md)}px
+		// @include sm
+			// padding: #{($i*$sm)}px
+
 	.py-#{$i}px
 		padding-top: #{$i}px
 		padding-bottom: #{$i}px
+		// @include md
+			// padding-top: #{($i*$md)}px
+			// padding-bottom: #{($i*$md)}px
+		// @include sm
+			// padding-top: #{($i*$sm)}px
+			// padding-bottom: #{($i*$sm)}px
+	.lg-py-#{$i}px
+		@include lg
+			padding-top: #{$i}px !important
+			padding-bottom: #{$i}px !important
+	.md-py-#{$i}px
 		@include md
-			padding-top: #{($i*$md)}px
-			padding-bottom: #{($i*$md)}px
-		@include sm
-			padding-top: #{($i*$sm)}px
-			padding-bottom: #{($i*$sm)}px
-			
+			padding-top: #{$i}px !important
+			padding-bottom: #{$i}px !important
+
 	.px-#{$i}px
 		padding-left: #{$i}px
 		padding-right: #{$i}px
-		@include md
-			padding-left: #{($i*$md)}px
-			padding-right: #{($i*$md)}px
-		@include sm
-			padding-left: #{($i*$sm)}px
-			padding-right: #{($i*$sm)}px
-			
+		// @include md
+			// padding-left: #{($i*$md)}px
+			// padding-right: #{($i*$md)}px
+		// @include sm
+			// padding-left: #{($i*$sm)}px
+			// padding-right: #{($i*$sm)}px
+
 	.pt-#{$i}px
 		padding-top: #{$i}px
+		// @include md
+			// padding-top: #{($i*$md)}px
+		// @include sm
+			// padding-top: #{($i*$sm)}px
+	.lg-pt-#{$i}px
+		@include lg
+			padding-top: #{$i}px !important
+	.md-pt-#{$i}px
 		@include md
-			padding-top: #{($i*$md)}px
-		@include sm
-			padding-top: #{($i*$sm)}px
-			
+			padding-top: #{$i}px !important
+
 	.pb-#{$i}px
 		padding-bottom: #{$i}px
+		// @include md
+			// padding-bottom: #{($i*$md)}px
+		// @include sm
+			// padding-bottom: #{($i*$sm)}px
+	.lg-pb-#{$i}px
+		@include lg
+			padding-bottom: #{$i}px !important
+	.md-pb-#{$i}px
 		@include md
-			padding-bottom: #{($i*$md)}px
-		@include sm
-			padding-bottom: #{($i*$sm)}px
-			
+			padding-bottom: #{$i}px !important
+
 	.pl-#{$i}px
 		padding-left: #{$i}px
-		@include md
-			padding-left: #{($i*$md)}px
-		@include sm
-			padding-left: #{($i*$sm)}px
-			
+		// @include md
+			// padding-left: #{($i*$md)}px
+		// @include sm
+			// padding-left: #{($i*$sm)}px
+
 	.pr-#{$i}px
 		padding-right: #{$i}px
-		@include md
-			padding-right: #{($i*$md)}px
-		@include sm
-			padding-right: #{($i*$sm)}px
-			
+		// @include md
+			// padding-right: #{($i*$md)}px
+		// @include sm
+			// padding-right: #{($i*$sm)}px
+
 @for $i	from 1 through 100
 	.p-#{$i}
 		padding: $i * 1%
-		@include md
-			padding: $i * $md * 1%
-		@include sm
-			padding: $i * $sm * 1%
-			
+		// @include md
+			// padding: $i * $md * 1%
+		// @include sm
+			// padding: $i * $sm * 1%
+
 	.py-#{$i}
 		padding-top: $i * 1%
 		padding-bottom: $i * 1%
+		// @include md
+			// padding-top: $i * $md * 1%
+			// padding-bottom: $i * $md * 1%
+		// @include sm
+			// padding-top: $i * $sm * 1%
+			// padding-bottom: $i * $sm * 1%
+	.lg-py-#{$i}
+		@include lg
+			padding-top: $i * 1% !important
+			padding-bottom: $i * 1% !important
+	.md-py-#{$i}
 		@include md
-			padding-top: $i * $md * 1%
-			padding-bottom: $i * $md * 1%
-		@include sm
-			padding-top: $i * $sm * 1%
-			padding-bottom: $i * $sm * 1%
-			
+			padding-top: $i * 1% !important
+			padding-bottom: $i * 1% !important
+
 	.px-#{$i}
 		padding-left: $i * 1%
 		padding-right: $i * 1%
-		@include md
-			padding-left: $i * $md * 1%
-			padding-right: $i * $md * 1%
-		@include sm
-			padding-left: $i * $sm * 1%
-			padding-right: $i * $sm * 1%
-			
+		// @include md
+			// padding-left: $i * $md * 1%
+			// padding-right: $i * $md * 1%
+		// @include sm
+			// padding-left: $i * $sm * 1%
+			// padding-right: $i * $sm * 1%
+
 	.pt-#{$i}
 		padding-top: $i * 1%
-		@include md
-			padding-top: $i * $md * 1%
-		@include sm
-			padding-top: $i * $sm * 1%
-			
+		// @include md
+			// padding-top: $i * $md * 1%
+		// @include sm
+			// padding-top: $i * $sm * 1%
+
 	.pb-#{$i}
 		padding-bottom: $i * 1%
-		@include md
-			padding-bottom: $i * $md * 1%
-		@include sm
-			padding-bottom: $i * $sm * 1%
-			
+		// @include md
+			// padding-bottom: $i * $md * 1%
+		// @include sm
+			// padding-bottom: $i * $sm * 1%
+
 	.pl-#{$i}
 		padding-left: $i * 1%
-		@include md
-			padding-left: $i * $md * 1%
-		@include sm
-			padding-left: $i * $sm * 1%
-			
+		// @include md
+			// padding-left: $i * $md * 1%
+		// @include sm
+			// padding-left: $i * $sm * 1%
+
 	.pr-#{$i}
 		padding-right: $i * 1%
+		// @include md
+			// padding-right: $i * $md * 1%
+		// @include sm
+			// padding-right: $i * $sm * 1%
+	.lg-pr-#{$i}
+		@include lg
+			padding-right: $i * 1% !important
+	.md-pr-#{$i}
 		@include md
-			padding-right: $i * $md * 1%
-		@include sm
-			padding-right: $i * $sm * 1%
-		
+			padding-right: $i * 1% !important
+
 .no-padding
-	padding: 0					
-	
+	padding: 0
+
 .no-margin
-	margin: 0	
-	
+	margin: 0
+
 @for $i	from 0 through 1250
 	.width-#{$i}px
 		width: #{$i}px !important
@@ -296,7 +339,7 @@ $xs: 0.4
 		max-height: #{$i}px !important
 	.min-height-#{$i}px
 		min-height: #{$i}px !important
-		
+
 @for $i	from 0 through 100
 	.width-#{$i}
 		width: ($i * 1%) !important
@@ -310,12 +353,12 @@ $xs: 0.4
 		max-height: ($i * 1%) !important
 	.min-height-#{$i}
 		min-height: ($i * 1%) !important
-		
+
 .width-auto
 	width: auto	 !important
-		
+
 @for $i	from 0 through 50
 	.border-radius-#{$i}
 		border-radius: #{$i}px
 		overflow: hidden
-		
+
