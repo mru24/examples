@@ -1,4 +1,6 @@
-// ww layout classes sass version 1.1
+// ww layout classes sass version 1.2
+
+// v 1.2 column row padding added
 
 @import 'helper-classes.sass'
 
@@ -23,6 +25,23 @@
 			width: #{$i}px
 			@include sm
 				width: 100%
+	.col
+		padding: 0 30px
+		@include md
+			padding: 0 15px
+		&:first-child
+			padding-left: 0
+			@include md
+				padding: 0 15px
+		&:last-child
+			padding-right: 0
+			@include md
+				padding: 0 15px
+
+.row.no-wrap
+	.col
+		float: left !important
+
 
 // **************************************************** MARGIN
 
