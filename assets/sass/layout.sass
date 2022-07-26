@@ -25,18 +25,15 @@
 			width: #{$i}px
 			@include sm
 				width: 100%
+
+.row
+	margin: 0 -15px
+	@include md
+		margin: 0 -15px
 	.col
-		padding: 0 30px
+		padding: 0 15px
 		@include md
 			padding: 0 15px
-		&:first-child
-			padding-left: 0
-			@include md
-				padding: 0 15px
-		&:last-child
-			padding-right: 0
-			@include md
-				padding: 0 15px
 
 .row.no-wrap
 	.col
